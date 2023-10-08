@@ -4,7 +4,10 @@
     box-sizing: border-box;
 }
 
-/* Global styles */
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: black;
     color: white;
@@ -339,13 +342,16 @@ cursor: pointer;
 
 
 /*-----------------CSS FOR SMALL SCREEN-------------------*/
-nav .fas{
-    display: none;
-}
+
 
 @media only screen and (max-width: 600px) {
+    /* Hide the menu buttons for screens wider than 600px */
+nav.fas {
+    display: none;
+}
     #header {
         background-image: url(images/phone-background.png);
+        background-size: cover;
     }
     .header-text {
         margin-top: 100%;
@@ -354,62 +360,64 @@ nav .fas{
     .header-text h1 {
         font-size: 30px;
     }
-    nav.fas{
+    nav.fas {
         display: block;
         font-size: 25px;
+        
     }
-    nav ul{
-        background:#ff004f ;
-        position:fixed;
-        top: 0;
-        right: 0;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-    }
-    nav ul li{
-        display: block;
-        margin: 25px;
-    }
-    nav ul .fas{
+
+    .close-btn {
         position: absolute;
         top: 25px;
         left: 25px;
         cursor: pointer;
     }
-    /* Add this CSS to hide the menu by default */
-nav ul {
-    /* Existing styles */
-    display: none;
+    nav ul {
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li {
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fas {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .sub-title{
+        font-size: 40px;
+    }
+    .About-col-1,.About-col-2{
+        flex-basis: 100%;
+    }
+    .About-col-1{
+        margin-bottom: 30px;
+    }
+    .About-col-2{
+        font-size: 14px;
+    }
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
 }
-
-/* Add this CSS to show the menu when the "show-menu" class is applied */
-nav ul.show-menu {
+#msg{
+    color: #61b752;
+    margin-top: -40px;
     display: block;
-}
-/* Add this CSS to hide the menu by default */
-nav ul {
-    /* Existing styles */
-    display: none;
-}
-
-/* Add this CSS to show the menu when the "show-menu" class is applied */
-nav ul.show-menu {
-    display: block;
-}
-
-/* Style the menu button */
-.menu-button {
-    background: #ff004f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Style the close button */
-
-    /* Your existing styles for the close button */
-
-
 }
